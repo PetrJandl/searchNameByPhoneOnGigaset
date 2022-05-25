@@ -2,7 +2,8 @@
 
 
 
-V nastaveni telefonu (Teledoní seznamy -> Online telefonní seznam) je možnost pridat verejne telefonni seznamy. Bohuzel se mi nepodarilo jednoduchym pridanim docilit nejake funkcnosti, tedy je pro spravnou funkcnost upravit DNS. Tak aby domena tel.search.ch smerovala na server kde bude tento script. A v pripade, ze se vam nebude zamlouvat vychozi cesta /api/siemens (na kterou telefon GETem zasílá dotaz), je treba i nstaveni v apache (.htaccess) na spravnou cestu asi takto:
+V nastaveni telefonu (Teledoní seznamy -> Online telefonní seznam) je možnost pridat verejne telefonni seznamy.
+Bohuzel se mi nepodarilo jednoduchym pridanim docilit funkcnosti, pro spravnou funkcnost je treba upravit DNS, tak aby domena tel.search.ch smerovala na server kde bude tento script (intranet.knihovnahk.cz). V pripade, ze se vam nebude zamlouvat vychozi cesta /api/siemens (na kterou telefon GETem zasílá dotaz), je treba i nstaveni v apache (.htaccess) na spravnou cestu treba takto:
 <pre>
 &lt;Directory /var/www/intranet.knihovnahk.cz/api&gt;
     RewriteEngine On
