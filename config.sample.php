@@ -12,7 +12,7 @@ $allowedOnIP = array(
 	"127.0.0.1",
 );
 
-// Interni seznamy v XML ( format odpovida Yeastar online seznamu )
+// Interni seznamy v XML ( format odpovida Yeastar online seznamu viz. sample.xml )
 $phonebooks = array( );
 
 // Kdyz neni nalezeno zadne cislo vrati se prazdna odpoved
