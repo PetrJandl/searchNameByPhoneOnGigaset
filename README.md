@@ -1,6 +1,6 @@
 # Zobrazení jména volajícího na tel. Gigaset (vyzkouseno na A540 IP)
 
-https://github.com/PetrJandl/searchNameByPhoneOnGigaset/blob/61d780ef98637b3985985fadb29375584b3d00ac/zjisteniCisla.mp4?width=200&height=200
+https://user-images.githubusercontent.com/PetrJandl/searchNameByPhoneOnGigaset/blob/61d780ef98637b3985985fadb29375584b3d00ac/zjisteniCisla.mp4?width=200&height=200
 
 https://user-images.githubusercontent.com/22210051/124587799-abcfe300-de75-11eb-89e0-3f68ed20b79b.mp4?width=200&height=200
 
