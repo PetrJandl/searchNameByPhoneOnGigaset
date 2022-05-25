@@ -15,10 +15,6 @@ if ($checkIP){
 // ocista od specialnich znaku
 $phone = htmlspecialchars($_GET["hm"], ENT_QUOTES);
 
-// zahodit predvolbu
-if( strlen($phone) >= 9 ){
-    $phone=substr($phone,-9);
-}
 $name="";
 
 // jsou li zadany XML soubory nejprve hleda v nich
@@ -34,6 +30,11 @@ if(isset($phonebooks[0])){
 		}
 	    }
     }
+}
+
+// zahodit predvolbu
+if( strlen($phone) >= 9 ){
+    $phone=substr($phone,-9);
 }
 
 // pokud nebylo jmeno v XML souborech hleda se v tritiu
