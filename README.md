@@ -1,6 +1,5 @@
 # Zobrazení jména volajícího na tel. Gigaset (vyzkouseno na A540 IP)
 
-<video src="zjisteniCisla.mp4" width=180 />
 https://user-images.githubusercontent.com/22210051/124587799-abcfe300-de75-11eb-89e0-3f68ed20b79b.mp4?width=200&height=200
 
 V nastaveni telefonu (Teledoní seznamy -> Online telefonní seznam) je možnost pridat verejne telefonni seznamy.
