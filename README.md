@@ -22,4 +22,4 @@
 
 ## Dalsi moznosti
 - v config.php lze zapnout kontrolu IP a vyjmenovat z jakych IP je info povoleno
-- v config.php lze definovat XML soubory ve tvaru <a href="https://github.com/PetrJandl/searchNameByPhoneOnGigaset/blob/main/doc/sample.xml">sample.xml</a>, ktere budou prohledany pred odeslanim dotazu na tritius
+- v config.php lze definovat XML soubory ve tvaru <a href="https://github.com/PetrJandl/searchNameByPhoneOnGigaset/blob/main/doc/sample.xml">sample.xml</a>, ktere budou prohledany pred odeslanim dotazu na tritius. Format souboru odpovida online adresari pro telefony Yeastar.
