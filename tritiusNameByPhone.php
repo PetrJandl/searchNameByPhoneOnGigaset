@@ -1,7 +1,7 @@
 <?php
 /*
-    Jednoduchý script zasílající dotaz na tritius s telefonním číslem předaným v parametru hm.
-    Vrací v XML celé jméno čtenáře, pokud je nalezeno a je to jen jeden záznam.
+    Jednoduchy script zasilajici dotaz na tritius s telefonnim císlem predanym v parametru hm. Vraci v XML cele jmeno ctenare, pokud je nalezeno.
+    Popis tritius api : https://confluence.tritius.cz/display/TP/REST+API+-+Open+Tritius
 */
 
 include_once "config.php";
