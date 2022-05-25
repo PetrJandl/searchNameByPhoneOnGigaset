@@ -8,10 +8,18 @@
 - nastavit v DNS IP vlastniho serveru jako preklad pro tel.search.ch 
 - v telefonu (Teledoní seznamy -> Online telefonní seznam) povolit tel.search.ch 
 <img src="https://raw.githubusercontent.com/PetrJandl/searchNameByPhoneOnGigaset/95b28e4ca5d1a8d3ae8e88a5377d08b1da7f613d/doc/nastaveni.png">
+
 - nastavit v apache (nebo .htaccess ?) aby na script tritiusNameByPhone.php smerovala URL /api/siemens :
+
 <pre>
 &lt;Directory /var/www/intranet.knihovnahk.cz/api&gt;
     RewriteEngine On
     RewriteRule ^(.*)$ /TELEFONY/gigasety/tritiusNameByPhone.php/$1 [L]
 &lt;/Directory&gt;
 </pre>
+
+- v config.php je nutno nastavit url tritia a secret
+
+## Dalsi moznosti
+- v config.php lze zapnout kontrolu IP a vyjmenovat z jakych IP je info povoleno
+- v config.php lze definovat XML soubory ve tvaru <a href="https://github.com/PetrJandl/searchNameByPhoneOnGigaset/blob/main/doc/sample.xml">sample.xml</a>, ktere budou prohledany pred odeslanim dotazu na tritius
