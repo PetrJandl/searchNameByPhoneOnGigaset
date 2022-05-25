@@ -1,4 +1,4 @@
-# Hledani jmena vojaliciho pro tel Gigaset (vyzkouseno na A540 IP)
+# Zobrazení jména volajícího na tel. Gigaset (vyzkouseno na A540 IP)
 
 
 
