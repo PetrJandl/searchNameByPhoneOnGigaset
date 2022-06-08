@@ -8,7 +8,7 @@ include_once "config.php";
 
 // kontrola IP (kdyz je zapnuta)
 if ($checkIP){
-    print_r(fullXMLtemplate("NepovolenaIP"));
+    print_r(fullXMLtemplate("Nepovolená IP!"));
     die();
 }
 
@@ -58,9 +58,14 @@ if($name==""){
     $name=$output->rows[0]->fullname;
 }
 
+//header('Content-type: text/plain; charset=utf-8');
+
 // pokud je jmeno vrati jmeno v xml template nebo vrati prazdny template
 if($name!="" OR isset($output->rows[1])){
-    echo fullXMLtemplate($name);
+    setlocale(LC_ALL, 'cs_CZ.UTF8');
+    $namePuv=$name;
+    $nameNew=substr( iconv( "UTF-8", "ASCII//TRANSLIT", $name ), 0, 8 );
+    echo fullXMLtemplate( $nameNew . (strlen($namePuv)!=strlen($nameNew)?".":"") );
 }else{
     echo emptyXMLtemplate();
 }
