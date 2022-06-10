@@ -1,0 +1,57 @@
+#!/bin/sh
+### BEGIN INIT INFO
+# Provides:          apache2
+# Required-Start:    $local_fs $remote_fs $network $syslog $named
+# Required-Stop:     $local_fs $remote_fs $network $syslog $named
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# X-Interactive:     true
+# Short-Description: Apache2 web server
+# Description:       Start the web server
+#  This script will start the apache2 web server.
+### END INIT INFO
+
+DESC="Websocket server"
+NAME=websocket
+DAEMON=/usr/bin/php
+DAEMON_OPTS=/var/www/gigaset/php-socket/app.php
+
+PIDFILE="/var/run/${NAME}.pid"
+LOGFILE="/var/run/${NAME}.log"
+
+
+START_OPTS="--start --background --make-pidfile --pidfile ${PIDFILE} --exec ${DAEMON}         ${DAEMON_OPTS}"
+STOP_OPTS="--stop --pidfile ${PIDFILE}"
+
+test -x $DAEMON || exit 0
+
+set -e
+
+case "$1" in
+    start)
+    echo -n "Starting ${DESC}: "
+    start-stop-daemon $START_OPTS >> $LOGFILE
+    echo "$NAME."
+    ;;
+stop)
+    echo -n "Stopping $DESC: "
+    start-stop-daemon $STOP_OPTS
+    echo "$NAME."
+    rm -f $PIDFILE
+    ;;
+restart|force-reload)
+    echo -n "Restarting $DESC: "
+    start-stop-daemon $STOP_OPTS
+    sleep 1
+    start-stop-daemon $START_OPTS >> $LOGFILE
+    echo "$NAME."
+    ;;
+*)
+    N=/etc/init.d/$NAME
+    echo "Usage: $N {start|stop|restart|force-reload}" >&2
+    exit 1
+    ;;
+esac
+
+exit 0
+

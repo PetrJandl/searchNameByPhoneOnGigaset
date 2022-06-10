@@ -1,0 +1,1 @@
+Aplikaci app.php je nutne "demonizovat", pro debian 10 je vyzkousen prilozeny soubor webcosket

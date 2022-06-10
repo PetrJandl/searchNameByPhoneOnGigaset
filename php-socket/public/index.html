@@ -7,9 +7,19 @@
     <body>
         <input type="text" id="message" />
         <button onclick="transmitMessage()">Send</button>
+	<div id="chat"></div>
         <script>
             // Create a new WebSocket.
-            var socket  = new WebSocket('ws://localhost:8080');
+	    try {
+            var socket  = new WebSocket('ws://192.168.133.222:8080');
+	    }
+	    catch (err) {
+		console.log('This never prints');
+	    }
+	    socket.onerror = function (error) {
+		alert("Chyba pripojeni!");
+		console.log(error);
+	    };
 
             // Define the 
             var message = document.getElementById('message');
@@ -19,7 +29,9 @@
             }
 
             socket.onmessage = function(e) {
-                alert( e.data );
+                //alert( e.data );
+    var html = document.getElementById('chat').innerHTML;
+    document.getElementById('chat').innerHTML = '<div id="idChild"> ' + e.data + ' </div>'+html;
             }
         </script>
     </body>
