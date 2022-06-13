@@ -20,7 +20,7 @@ class Socket implements MessageComponentInterface {
         echo "New connection! ({$conn->resourceId})\n";
         foreach ( $this->clients as $client ) {
 	    if($client->remoteAddress=="192.168.20.235" OR $client->remoteAddress=="192.168.133.80"){
-    	        $client->send( "New connection! ({$conn->resourceId})" );
+    	        //$client->send( "New connection! ({$conn->resourceId})" );
 	    }
         }
     }
@@ -29,22 +29,33 @@ class Socket implements MessageComponentInterface {
 
         foreach ( $this->clients as $client ) {
 
-/*
+
             if ( $from->resourceId == $client->resourceId ) {
                 continue;
             }
-*/
+
+
             //print_r($from);
 
 //            $client->send( "Client $from->remoteAddress said $msg" );
-            $client->send( "Client $from->resourceId said $msg;$from->remoteAddress;" );
+//            $client->send( "Client $from->resourceId said $msg;$from->remoteAddress;" );
+/*
+	    $send = json_encode(
+		    array(
+			"phoneIP"=>"192.168.133.133",
+			"msg" => "Client $from->resourceId said $msg"
+			)
+		    );
+*/
+	    $send=$msg;
+            $client->send( $send );
         }
     }
 
     public function onClose(ConnectionInterface $conn) {
         foreach ( $this->clients as $client ) {
 	    if($client->remoteAddress=="192.168.20.235" OR $client->remoteAddress=="192.168.133.80"){
-    		$client->send( "Connection Close! ({$conn->resourceId})" );
+    		//$client->send( "Connection Close! ({$conn->resourceId})" );
 	    }
         }
     }

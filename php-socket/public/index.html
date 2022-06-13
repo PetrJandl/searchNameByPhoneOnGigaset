@@ -30,8 +30,11 @@
 
             socket.onmessage = function(e) {
                 //alert( e.data );
-    var html = document.getElementById('chat').innerHTML;
-    document.getElementById('chat').innerHTML = '<div id="idChild"> ' + e.data + ' </div>'+html;
+		console.log(e.data);
+		var recive = JSON.parse(e.data);
+		console.log(recive.msg);
+	        var html = document.getElementById('chat').innerHTML;
+	        document.getElementById('chat').innerHTML = '<div id="idChild"> ' + recive.msg  + ' </div>'+html;
             }
         </script>
     </body>
