@@ -1,11 +1,21 @@
 <html>
     <head>
         <style>
-            input, button { padding: 10px; }
+            input, button { padding: 10px; width: 200px; }
+	    label { display: inline-block; width: 200px; }
         </style>
     </head>
     <body>
-        <input type="text" id="message" />
+	<div>
+	    <label class="desc" for="src">SRC</label>
+	    <label class="desc" for="dst">DST</label>
+	    <label class="desc" for="name">Name</label>
+	    <label class="desc" for="phone">Phone</label>
+	</div>
+        <input type="text" id="src" value="192.168.133.123" autofocus />
+        <input type="text" id="dst" value="92.68.33.23" />
+        <input type="text" id="name" value="Novak Karel" />
+        <input type="text" id="phone" value="192168133" />
         <button onclick="transmitMessage()">Send</button>
 	<div id="chat"></div>
         <script>
@@ -21,20 +31,25 @@
 		console.log(error);
 	    };
 
-            // Define the 
-            var message = document.getElementById('message');
-
             function transmitMessage() {
-                socket.send( message.value );
+		var message = new Object();
+		message.src = document.getElementById('src').value;
+		message.dst = document.getElementById('dst').value;
+		message.name = document.getElementById('name').value;
+		message.phone = document.getElementById('phone').value;
+		//console.log( message.name );
+		//console.log( JSON.stringify(message) );
+                socket.send( JSON.stringify(message) );
+                //socket.send( message );
             }
 
             socket.onmessage = function(e) {
                 //alert( e.data );
-		console.log(e.data);
+		//console.log(e.data);
 		var recive = JSON.parse(e.data);
-		console.log(recive.msg);
+		//console.log(recive.msg);
 	        var html = document.getElementById('chat').innerHTML;
-	        document.getElementById('chat').innerHTML = '<div id="idChild"> ' + recive.msg  + ' </div>'+html;
+	        document.getElementById('chat').innerHTML = '<div id="idChild"> Vola : ' + recive.name  + ' (' + recive.phone + ') </div>'+html;
             }
         </script>
     </body>
