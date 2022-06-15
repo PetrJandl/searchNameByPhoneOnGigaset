@@ -38,7 +38,7 @@
 		message.name = document.getElementById('name').value;
 		message.phone = document.getElementById('phone').value;
 		//console.log( message.name );
-		//console.log( JSON.stringify(message) );
+		console.log( JSON.stringify(message) );
                 socket.send( JSON.stringify(message) );
                 //socket.send( message );
             }
