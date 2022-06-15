@@ -29,11 +29,9 @@ class Socket implements MessageComponentInterface {
 
         foreach ( $this->clients as $client ) {
 
-
             if ( $from->resourceId == $client->resourceId ) {
                 continue;
             }
-
 
             //print_r($from);
 
