@@ -5,6 +5,7 @@
         }
     },
     "require": {
-        "cboden/ratchet": "^0.4"
+        "cboden/ratchet": "^0.4",
+	"hemiframe/php-websocket": "~1.7"
     }
 }
