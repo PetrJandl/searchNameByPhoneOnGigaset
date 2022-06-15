@@ -1,4 +1,4 @@
-#!/usr/bin/php
+#!/usr/bin/php7.0
 
 <?php
 
@@ -9,6 +9,6 @@ $socket->on("receive", function($client, $data) use($socket) {
 });
 $client = $socket->connect();
 if ($client) {
-    $socket->sendData($client, "Message");
+    $socket->sendData($client, '{"src":"1.1.1.1","dst":"9.8.3.2","name":"No Ka","phone":"123"}');
     $socket->disconnectClient($client);
 }
