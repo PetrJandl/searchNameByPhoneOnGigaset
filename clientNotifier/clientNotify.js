@@ -2,18 +2,18 @@ const WindowsBalloon = require("node-notifier").WindowsBalloon;
 const WebSocket = require("ws");
 var open_url_by_browser = require("open-url-by-browser");
 
-
-const ws = new WebSocket("ws://192.168.133.222:8080/", {
+const config = require("./config");
+const { ws: { host, port } } = config;
+const ws = new WebSocket(`ws://${host}:${port}/`, {
   perMessageDeflate: false
 });
 
-function showNotify(recive){
-
+function showNotify(recive) {
   var notifier = new WindowsBalloon({
     withFallback: false, // Try Windows Toast and Growl first?
     customPath: undefined // Relative/Absolute path if you want to use your fork of notifu
   });
-  
+
   notifier.notify(
     {
       title: "Příchozí hovor",
@@ -26,15 +26,12 @@ function showNotify(recive){
       //console.log(response, metadata);
     }
   );
-  
+
   notifier.on("click", function(notifierObject, options, event) {
-    open_url_by_browser("http://192.168.133.222/info.php?name="+recive.name);
+    const { copyWeb: { protocol, host } } = config;
+    open_url_by_browser(`${protocol}://${host}/info.php?name=${recive.name}`);
   });
-
-  
-
 }
-
 
 ws.on("message", function message(data) {
   //console.log("received: %s", data);
@@ -43,6 +40,4 @@ ws.on("message", function message(data) {
   //console.log(recive.msg);
   showNotify(recive);
   delete notifier;
-
 });
-

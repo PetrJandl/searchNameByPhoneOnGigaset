@@ -4,3 +4,4 @@ tritiusIDByName.php
 tritiusNameByPhone2.php
 php-socket/vendor
 clientNotifier/node_modules
+clientNotifier/config.js
