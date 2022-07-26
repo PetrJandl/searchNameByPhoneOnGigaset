@@ -25,7 +25,7 @@
 - v config.php lze definovat XML soubory ve tvaru <a href="https://github.com/PetrJandl/searchNameByPhoneOnGigaset/blob/main/doc/sample.xml">sample.xml</a>, ktere budou prohledany pred odeslanim dotazu na tritius. Format souboru odpovida online adresari pro telefony Yeastar.
 
 ## Experimentálně jsem také zkusil provázat s PC přes websocket :
-[![Experimentální ověření funkčnosti nofikace v PC](https://img.youtube.com/vi/8d5yxL5S4Hw/0.jpg)](https://www.youtube.com/watch?v=TH9A381Ewss)
+[![Experimentální ověření funkčnosti nofikace v PC](https://img.youtube.com/vi/8d5yxL5S4Hw/0.jpg)](https://www.youtube.com/watch?v=8d5yxL5S4Hw)
 
 
 
