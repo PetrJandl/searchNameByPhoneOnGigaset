@@ -6,7 +6,7 @@
 
 ## Nastaveni
 - nastavit v DNS IP vlastniho serveru jako preklad pro tel.search.ch 
-- v telefonu (Teledoní seznamy -> Online telefonní seznam) povolit tel.search.ch 
+- v telefonu (Telefonní seznamy -> Online telefonní seznam) povolit tel.search.ch 
 <img src="https://raw.githubusercontent.com/PetrJandl/searchNameByPhoneOnGigaset/95b28e4ca5d1a8d3ae8e88a5377d08b1da7f613d/doc/nastaveni.png">
 
 - nastavit v apache (nebo .htaccess ?) aby na script tritiusNameByPhone.php smerovala URL /api/siemens :
