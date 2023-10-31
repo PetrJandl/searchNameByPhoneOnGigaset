@@ -8,7 +8,7 @@ include_once "config.php";
 
 // kontrola IP (kdyz je zapnuta)
 if ($checkIP){
-    print_r(fullXMLtemplate("Nepovolená IP!"));
+    print_r(fullXMLtemplate("Nepovolena IP!"));
     die();
 }
 
@@ -36,8 +36,8 @@ if(isset($phonebooks[0])){
 if( strlen($phone) >= 9 ){
     $phone=substr($phone,-9);
 }
-
 // pokud nebylo jmeno v XML souborech hleda se v tritiu
+$sql="select fullname from \"user\" WHERE phone like '%".$phone."%'";
 if($name==""){
     $curlHandler = curl_init();
     curl_setopt_array($curlHandler, [
@@ -51,7 +51,7 @@ if($name==""){
 	CURLOPT_URL => $url,
 	CURLOPT_RETURNTRANSFER => true,
 	CURLOPT_POST => true,
-	CURLOPT_POSTFIELDS => json_encode( array( "sql" => "select fullname from \"user\" WHERE phone like '%".$phone."%'" ))
+	CURLOPT_POSTFIELDS => json_encode( array( "sql" => $sql ))
     ]);
     $output=json_decode(curl_exec($curlHandler));
     curl_close($curlHandler);
