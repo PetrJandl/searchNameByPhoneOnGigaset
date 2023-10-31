@@ -55,7 +55,9 @@ if($name==""){
     ]);
     $output=json_decode(curl_exec($curlHandler));
     curl_close($curlHandler);
-    $name=$output->rows[0]->fullname;
+    if(isset($output->rows[0])){
+	$name=$output->rows[0]->fullname;
+    }
 }
 
 //header('Content-type: text/plain; charset=utf-8');
