@@ -51,7 +51,7 @@ if($name==""){
 	CURLOPT_URL => $url,
 	CURLOPT_RETURNTRANSFER => true,
 	CURLOPT_POST => true,
-	CURLOPT_POSTFIELDS => json_encode( array( "sql" => "select fullname from user WHERE phone like '%".$phone."%'" ))
+	CURLOPT_POSTFIELDS => json_encode( array( "sql" => "select fullname from \"user\" WHERE phone like '%".$phone."%'" ))
     ]);
     $output=json_decode(curl_exec($curlHandler));
     curl_close($curlHandler);
