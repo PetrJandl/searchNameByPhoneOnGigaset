@@ -14,7 +14,9 @@ if ($checkIP){
 
 // ocista od specialnich znaku
 $phone = htmlspecialchars($_GET["hm"], ENT_QUOTES);
-
+if (strlen((int)$phone) < 9){
+    die("Telefon nutno zadat jako param <a href=\"?hm=X\">?hm=XXX</a>");
+}
 $name="";
 
 // jsou li zadany XML soubory nejprve hleda v nich
